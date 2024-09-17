@@ -5,7 +5,6 @@ from torchvision import datasets, models, transforms
 from torch.utils.data import DataLoader
 import torch.optim as optim
 import time
-import torch
 import torch.nn as nn
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from matplotlib import pyplot as plt
@@ -14,7 +13,20 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import seaborn as sns
 
 class Trainer:
-    def __init__(self, model, data_loader_treino, data_loader_validacao, num_imagens_treino, num_imagens_validacao, device, num_classes, patience=5, nameModel='model.pt', otimizador=None, scheduler=None):
+    def __init__(
+        self,
+        model,
+        data_loader_treino,
+        data_loader_validacao,
+        num_imagens_treino,
+        num_imagens_validacao,
+        device,
+        num_classes=8,
+        patience=5,
+        nameModel='nome do arquivo.pt',
+        otimizador=None,
+        scheduler=None
+    ):
         """
         Inicializa o Trainer com opções para usar ou não otimizador, scheduler e patience.
 
@@ -48,9 +60,13 @@ class Trainer:
         # Inicializa o scheduler apenas se for fornecido
         self.scheduler = scheduler
         
-        # Inicializa o patience apenas se for fornecido, senão define como None
+        # Inicializa o patience
         self.patience = patience
+
+        # Atualiza o caminho para salvar o modelo na pasta 'models/'
         self.nameModel = nameModel
+        self.model_save_path = os.path.join('models', self.nameModel)
+        os.makedirs(os.path.dirname(self.model_save_path), exist_ok=True)
 
     def treinar_e_validar(self, epocas):
         historico = []
@@ -76,7 +92,12 @@ class Trainer:
             # Early stopping
             if acuracia_validacao > melhor_acuracia:
                 melhor_acuracia = acuracia_validacao
-                torch.save(self.model.state_dict(), self.nameModel)
+                print(f"Validation accuracy improved to {melhor_acuracia:.4f}. Saving the model.")
+                try:
+                    torch.save(self.model.state_dict(), self.model_save_path)
+                    print(f"Modelo salvo com sucesso em {self.model_save_path}")
+                except Exception as e:
+                    print(f"Erro ao salvar o modelo: {e}")
                 early_stop_counter = 0
             else:
                 early_stop_counter += 1
@@ -137,9 +158,9 @@ class Trainer:
 
     def calcular_metricas(self, predicoes, labels):
         acuracia = accuracy_score(labels, predicoes)
-        precisao = precision_score(labels, predicoes, average='weighted')
-        recall = recall_score(labels, predicoes, average='weighted')
-        f1 = f1_score(labels, predicoes, average='weighted')
+        precisao = precision_score(labels, predicoes, average='weighted', zero_division=0)
+        recall = recall_score(labels, predicoes, average='weighted', zero_division=0)
+        f1 = f1_score(labels, predicoes, average='weighted', zero_division=0)
 
         print("\nMétricas de Validação:")
         print(f"Acurácia: {acuracia:.4f}")
@@ -148,6 +169,4 @@ class Trainer:
         print(f"F1-Score: {f1:.4f}")
 
         print("\nRelatório de Classificação:")
-        print(classification_report(labels, predicoes))
-
-
+        print(classification_report(labels, predicoes, zero_division=0))
