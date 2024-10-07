@@ -1,7 +1,7 @@
 # FER-MediaPipe
 
 Este repositório contém um projeto de Reconhecimento de Emoções Faciais (FER) usando MediaPipe para a detecção de pontos faciais e modelos personalizados para a classificação de emoções.
-O objetivo principal deste projeto foi comparar o desempenho de diferentes landmarsk com o <a href=“https://ai.google.dev/edge/mediapipe/solutions/guide?hl=pt-br“>MediaPipe</a>
+O objetivo principal deste projeto foi comparar o desempenho de diferentes landmarsk com o [mediapipe](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=pt-br)
 ## Tabela de Conteúdos
 
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
