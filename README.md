@@ -16,9 +16,9 @@ Para isso usamos 2 datasets o  [affectnet](https://www.kaggle.com/datasets/noams
 
 Comparação de Tipos de Landmarks e a imagem original
 Imagem original
-![Imagem pura](Imagens/imagem pura/img1.jpg)
+![Imagem pura](Imagens/imagem_pura/img1.jpg)
 O MediaPipe oferece diferentes tipos de landmarks, como pontos básicos, pontos detalhados e mesh completo. Aqui está uma breve comparação:
-![landmarks](Imagens/landmarks basicos/img1.jpg)
+![landmarks](Imagens/landmarks_basicos/img1.jpg)
 
 Landmarks Básicos: Conjunto mínimo de pontos que inclui olhos, boca e contorno do rosto.
 
@@ -28,7 +28,7 @@ Landmarks Básicos: Conjunto mínimo de pontos que inclui olhos, boca e contorno
 
 
 Landmarks Detalhados: Conjunto ampliado que inclui sobrancelhas, nariz e boca de forma mais precisa.
-![landmarks detalhados](Imagens/landmarks detalhados/img1.jpg)
+![landmarks detalhados](Imagens/landmarks_detalhados/img1.jpg)
 
 Landmarks Mesh: O mesh completo oferece uma representação densa da face, com pontos espalhados por toda a superfície.
 
