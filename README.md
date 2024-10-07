@@ -1,19 +1,18 @@
 # FER-MediaPipe
-
+[link para a previsão em tempo real](https://fer-01.vercel.app/) 
 Este repositório contém um projeto de Reconhecimento de Emoções Faciais (FER) usando MediaPipe para a detecção de pontos faciais e modelos personalizados para a classificação de emoções.
-O objetivo principal deste projeto foi comparar o desempenho de diferentes landmarsk com o [mediapipe](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=pt-br)
 ## Tabela de Conteúdos
 
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
 - [Funcionalidades](#funcionalidades)
 - [Instalação](#instalação)
-- [Uso](#uso)
 - [Contribuições](#contribuições)
-- [Licença](#licença)
 
 ## Visão Geral do Projeto
 
 O projeto **FER-MediaPipe** tem como objetivo classificar emoções faciais com base em pontos detectados através do MediaPipe. Este modelo detecta pontos faciais chave e os envia para um classificador treinado para prever um dos vários estados emocionais.
+O objetivo principal deste projeto foi comparar o desempenho de diferentes landmarsk com o [mediapipe](https://ai.google.dev/edge/mediapipe/solutions/guide?hl=pt-br)
+Para isso usamos 2 datasets o  [affectnet](https://www.kaggle.com/datasets/noamsegal/affectnet-training-data) e o [FER-2013](https://www.kaggle.com/datasets/msambare/fer2013)
 
 As emoções detectadas incluem:
 - Raiva
@@ -30,7 +29,7 @@ As emoções detectadas incluem:
 - Extração de pontos faciais usando [MediaPipe](https://google.github.io/mediapipe/).
 - Classificação de emoções usando um modelo de deep learning personalizado.
 - Integração com datasets populares como FER2013 e AffectNet.
-- Detecção de emoções faciais em tempo real via webcam ou imagens estáticas.
+- Detecção de emoções faciais em tempo real via webcam ou imagens estáticas .
 
 ## Instalação
 
