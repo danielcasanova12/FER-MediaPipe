@@ -22,7 +22,8 @@ O MediaPipe oferece diferentes tipos de landmarks, como pontos básicos, pontos 
 
 Landmarks Básicos: Conjunto mínimo de pontos que inclui olhos, boca e contorno do rosto.
 
-![landmarks completos](Imagens/landmarks completos/img1.jpg)
+![landmarks completos](Imagens/landmarks_completos/img1.jpg)
+
 
 
 
