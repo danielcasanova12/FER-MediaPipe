@@ -124,9 +124,9 @@ model = model.to(device)
 
 # Nome do modelo salvo e paciência para early stopping
 nameModel = 'affectnet.pt'
-patience = 5
+
 
 # Treinar e validar
-trainer = Trainer(model, data_loader_treino, data_loader_validacao, num_imagens_treino, num_imagens_validacao, device, num_classes, patience, nameModel)
+trainer = Trainer(model, data_loader_treino, data_loader_validacao, num_imagens_treino, num_imagens_validacao, device, num_classes, nameModel)
 epocas = 30
 trainer.treinar_e_validar(epocas)

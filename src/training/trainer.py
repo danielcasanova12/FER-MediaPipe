@@ -85,6 +85,48 @@ class Trainer:
 
             historico.append([erro_treino, erro_validacao, acuracia_treino, acuracia_validacao])
             
+            # Atualiza o scheduler se ele estiver definido e o scheduler não for None
+            if self.scheduler is not None:
+                self.scheduler.step(erro_validacao)
+
+            # Early stopping
+            if acuracia_validacao > melhor_acuracia:
+                melhor_acuracia = acuracia_validacao
+                print(f"Validation accuracy improved to {melhor_acuracia:.4f}. Saving the model.")
+                try:
+                    torch.save(self.model.state_dict(), self.model_save_path)
+                    print(f"Modelo salvo com sucesso em {self.model_save_path}")
+                except Exception as e:
+                    print(f"Erro ao salvar o modelo: {e}")
+                early_stop_counter = 0
+            else:
+                early_stop_counter += 1
+
+            if self.patience is not None and early_stop_counter >= self.patience:
+                print("Parando o treinamento devido ao early stopping.")
+                break
+
+        # Calcular métricas finais
+        self.calcular_metricas(predicoes_validacao, labels_validacao)
+        return historico
+
+    def treinar_e_validar(self, epocas):
+        historico = []
+        melhor_acuracia = 0.0
+        early_stop_counter = 0
+
+        for epoca in range(epocas):
+            inicio_epoca = time.time()
+            print(f"\n\nÉpoca: {epoca + 1}/{epocas}")
+            erro_treino, acuracia_treino = self.executar_fase('treino')
+            erro_validacao, acuracia_validacao, predicoes_validacao, labels_validacao = self.executar_fase('validacao', return_predictions=True)
+
+            fim_epoca = time.time()
+            print(f"Época {epoca + 1}/{epocas}, Treino: Erro: {erro_treino:.4f}, Acurácia: {acuracia_treino * 100:.2f}%, "
+                  f"Validação: Erro: {erro_validacao:.4f}, Acurácia: {acuracia_validacao * 100:.2f}%, Tempo: {fim_epoca - inicio_epoca:.2f}s")
+
+            historico.append([erro_treino, erro_validacao, acuracia_treino, acuracia_validacao])
+            
             # Atualiza o scheduler se ele estiver definido
             if self.scheduler is not None:
                 self.scheduler.step(erro_validacao)
