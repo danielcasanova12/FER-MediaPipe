@@ -1,89 +1,62 @@
 # FER-MediaPipe
 
-This repository contains a project for Facial Emotion Recognition (FER) using MediaPipe for facial landmark detection and custom models for emotion classification.
+Este repositório contém um projeto de Reconhecimento de Emoções Faciais (FER) usando MediaPipe para a detecção de pontos faciais e modelos personalizados para a classificação de emoções.
+O objetivo principal deste projeto foi comparar o desempenho de diferentes landmarsk com o <a href=“https://ai.google.dev/edge/mediapipe/solutions/guide?hl=pt-br“>MediaPipe</a>
+## Tabela de Conteúdos
 
-## Table of Contents
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+- [Funcionalidades](#funcionalidades)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Contribuições](#contribuições)
+- [Licença](#licença)
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+## Visão Geral do Projeto
 
-## Project Overview
+O projeto **FER-MediaPipe** tem como objetivo classificar emoções faciais com base em pontos detectados através do MediaPipe. Este modelo detecta pontos faciais chave e os envia para um classificador treinado para prever um dos vários estados emocionais.
 
-The **FER-MediaPipe** project aims to classify facial emotions based on landmarks extracted using MediaPipe. This model detects key facial points and feeds them into a custom-trained classifier to predict one of several emotional states.
+As emoções detectadas incluem:
+- Raiva
+- Desprezo
+- Nojo
+- Medo
+- Felicidade
+- Neutro
+- Tristeza
+- Surpresa
 
-Emotions detected include:
-- Anger
-- Contempt
-- Disgust
-- Fear
-- Happiness
-- Neutral
-- Sadness
-- Surprise
+## Funcionalidades
 
-## Features
+- Extração de pontos faciais usando [MediaPipe](https://google.github.io/mediapipe/).
+- Classificação de emoções usando um modelo de deep learning personalizado.
+- Integração com datasets populares como FER2013 e AffectNet.
+- Detecção de emoções faciais em tempo real via webcam ou imagens estáticas.
 
-- Facial landmark extraction using [MediaPipe](https://google.github.io/mediapipe/).
-- Emotion classification using a custom deep learning model.
-- Integration with popular datasets like FER2013 and AffectNet.
-- Real-time facial emotion detection through a webcam or static images.
+## Instalação
 
-## Installation
-
-1. Clone the repository:
+1. Clone o repositório:
     ```bash
     git clone https://github.com/danielcasanova12/FER-MediaPipe.git
     cd FER-MediaPipe
     ```
 
-2. Install the required dependencies:
+2. Instale as dependências necessárias:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Install additional dependencies for MediaPipe and machine learning:
+3. Instale as dependências adicionais para o MediaPipe e machine learning:
     ```bash
     pip install mediapipe opencv-python tensorflow
     ```
 
-4. If you encounter issues with `dlib`, ensure that `CMake` is installed and configured in your PATH.
+4. Se encontrar problemas com o `dlib`, certifique-se de que o `CMake` está instalado e configurado no PATH do sistema.
 
-## Usage
+## Uso
 
-### Running Emotion Detection on Webcam
+### Execução da Detecção de Emoções com Webcam
 
-To run the real-time emotion detection using your webcam, use the following command:
+Para executar a detecção de emoções em tempo real usando sua webcam, use o seguinte comando:
 
 ```bash
 python webcam_emotion_detector.py
-Running Emotion Detection on Static Images
-You can also run the detection on a set of static images. Modify the paths in the script to point to your image directory and run:
-
-bash
-Copiar código
-python static_image_emotion_detector.py
-Training the Model
-If you want to retrain the model with new data:
-
-Organize your dataset following this structure:
-
-bash
-Copiar código
-dataset/
-├── train/
-│   ├── anger/
-│   ├── happy/
-│   └── ... (other emotions)
-└── test/
-    ├── anger/
-    ├── happy/
-    └── ... (other emotions)
-Run the training script:
-
-python train_model.py
-Contributing
-Contributions are welcome! Feel free to submit a pull request or open an issue to report bugs or suggest improvements.
