@@ -18,9 +18,10 @@ Comparação de Tipos de Landmarks e a imagem original
 Imagem original
 ![Imagem pura](Imagens/imagem pura/img1.jpg)
 O MediaPipe oferece diferentes tipos de landmarks, como pontos básicos, pontos detalhados e mesh completo. Aqui está uma breve comparação:
-![landmarks basicos](Imagens/landmarks basicos/img1.jpg)
+![landmarks](Imagens/landmarks basicos/img1.jpg)
 
 Landmarks Básicos: Conjunto mínimo de pontos que inclui olhos, boca e contorno do rosto.
+
 ![landmarks completos](Imagens/landmarks completos/img1.jpg)
 
 
