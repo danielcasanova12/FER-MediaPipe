@@ -36,14 +36,14 @@ O MediaPipe oferece diferentes tipos de landmarks, como pontos básicos, pontos 
 
 - **Landmarks Básicos:** Conjunto mínimo de pontos que inclui olhos, boca e contorno do rosto.
   
-  ![landmarks](Imagens/landmarks_basicos/img1.jpg)
+  ![landmarks](Imagens/landmarks_basicos/img12.jpg)
 - **Landmarks Mesh:** O mesh completo oferece uma representação densa da face, com pontos espalhados por toda a superfície.
   
-  ![landmarks completos](Imagens/landmarks_completos/img1.jpg)
+  ![landmarks completos](Imagens/landmarks_completos/img12.jpg)
 
 - **Landmarks Detalhados:** Conjunto ampliado que inclui sobrancelhas, nariz e boca de forma mais precisa.
   
-  ![landmarks detalhados](Imagens/landmarks_detalhados/img1.jpg)
+  ![landmarks detalhados](Imagens/landmarks_detalhados/img12.jpg)
 
 
 
