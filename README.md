@@ -1,9 +1,7 @@
 # FER-MediaPipe
 
 [Link para a previsão em tempo real](https://fer-01.vercel.app/) 
-
-Este repositório contém um projeto de **Reconhecimento de Emoções Faciais (FER)** usando **MediaPipe** para a detecção de pontos faciais e modelos personalizados para a classificação de emoções.
-
+Este repositório apresenta o projeto Reconhecimento de Emoções Faciais (FER) usando MediaPipe para a detecção de pontos faciais e modelos personalizados para a classificação de emoções, com uma precisão impressionante de 69% em imagens puras!
 ## Tabela de Conteúdos
 
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
